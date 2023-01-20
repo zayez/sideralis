@@ -1,0 +1,27 @@
+{
+  "author": "zayez",
+  "name": "sideralis",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && next export",
+    "export": "",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@next/font": "13.1.2",
+    "@reduxjs/toolkit": "^1.9.1",
+    "next": "13.1.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-redux": "^8.0.5",
+    "react-toastify": "^9.1.1",
+    "react-transition-group": "^4.4.5",
+    "redux-persist": "^6.0.0"
+  },
+  "devDependencies": {
+    "sass": "^1.57.1"
+  }
+}
