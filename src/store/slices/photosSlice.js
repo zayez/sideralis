@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
-import { STATUS_ERR } from "../../types/HttpStatus"
+import { STATUS_ERR, STATUS_OK } from "../../types/HttpStatus"
+import api from "../../api"
 
 const initialState = {
   loading: false,
@@ -21,11 +22,11 @@ const photosSlice = createSlice({
     })
     builder.addCase(fetchPhotos.rejected, (state, action) => {
       state.loading = false
-      if (action.payload === STATUS_ERR) {
-        state.error = "Sorry, there was an error processing the photoss."
-      } else {
-        state.error = payload
-        console.log(payload)
+      const { status, message } = action.payload
+      switch (status) {
+        case STATUS_ERR:
+        default:
+          state.error = message
       }
     })
   },
@@ -34,16 +35,17 @@ const photosSlice = createSlice({
 export const fetchPhotos = createAsyncThunk(
   "photos/fetchPhotos",
   async (date, { rejectWithValue }) => {
-    const baseUrl = ""
-    const url = `${baseUrl}`
-    const res = await fetch(url)
-    switch (res.status) {
-      case 200:
-        return res.json()
-      default:
-        rejectWithValue(STATUS_ERR)
+    try {
+      const { status, payload } = await api.getPhotos(date)
+      switch (status) {
+        case STATUS_OK:
+          return payload
+        default:
+          return rejectWithValue(STATUS_ERR)
+      }
+    } catch (err) {
+      return rejectWithValue({ status: STATUS_ERR, message: err.message })
     }
-    const data = await res.json()
   }
 )
 
