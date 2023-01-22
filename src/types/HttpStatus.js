@@ -1,6 +1,6 @@
-const STATUS_OK = "ok"
-const STATUS_CREATED = "created"
-const STATUS_ERR = "error"
-const STATUS_UNAUTHORIZED = "unauthorized"
+const STATUS_OK = 200
+const STATUS_CREATED = 201
+const STATUS_ERR = 400
+const STATUS_UNAUTHORIZED = 403
 
 export { STATUS_OK, STATUS_CREATED, STATUS_ERR, STATUS_UNAUTHORIZED }
