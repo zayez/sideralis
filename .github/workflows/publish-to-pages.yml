@@ -5,7 +5,7 @@ on:
     branches: ["master"]
 
 env:
-  NODE_AUTH_TOKEN: ${{ secrets.PAGES_DEPLOYMENT }}
+  NEXT_PUBLIC_NASA_API_KEY: ${{ secrets.NEXT_PUBLIC_NASA_API_KEY }}
 
 permissions:
   contents: read
