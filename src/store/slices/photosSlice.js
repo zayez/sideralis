@@ -1,13 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
-import { format } from "date-fns"
 import { STATUS_ERR, STATUS_OK } from "../../types/HttpStatus"
 import api from "../../api"
-import { dateSubtract } from "@/helpers/dateHelpers"
 
 const initialState = {
   loading: false,
   loadingMore: false,
   photos: [],
+  hasMore: true,
   currentDate: null,
   error: "",
 }
@@ -23,6 +22,7 @@ const photosSlice = createSlice({
     builder.addCase(fetchPhotos.fulfilled, (state, action) => {
       state.loading = false
       state.currentDate = new Date(action.payload.date).toISOString()
+      state.hasMore = true
       state.photos = [...action.payload.data.reverse()]
       state.error = ""
     })
@@ -42,7 +42,7 @@ const photosSlice = createSlice({
     builder.addCase(fetchMorePhotos.fulfilled, (state, action) => {
       state.loadingMore = false
       state.currentDate = new Date(action.payload.date).toISOString()
-
+      state.hasMore = action.payload.data?.length > 0
       state.photos = [...state.photos, ...action.payload.data.reverse()]
       state.error = ""
     })
