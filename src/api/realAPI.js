@@ -1,8 +1,8 @@
 import { format } from "date-fns"
 const baseUrl = `https://api.nasa.gov/planetary`
-import { STATUS_ERR, STATUS_OK } from "@/types/HttpStatus"
+import { STATUS_ERR, STATUS_OK } from "../types/HttpStatus"
 import config from "../../config"
-import { dateSubtract } from "@/helpers/dateHelpers"
+import { dateSubtract } from "../helpers/dateHelpers"
 const API_KEY = config.nasa.api_key
 
 const getPhotos = async (date, interval = 3) => {
