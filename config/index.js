@@ -1,10 +1,9 @@
-import appconfig from "../appconfig.json"
-
-const config = {
-  ...appconfig,
+export const nasa = {
+  api_key: process.env.NEXT_PUBLIC_NASA_API_KEY,
 }
 
-export const nasa = config.nasa
-export const app = config.app
+const config = {
+  nasa,
+}
 
 export default config
