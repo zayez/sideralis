@@ -1,5 +1,5 @@
-import { dateSubtract } from "@/helpers/dateHelpers"
-import { STATUS_OK } from "@/types/HttpStatus"
+import { dateSubtract } from "../helpers/dateHelpers"
+import { STATUS_OK } from "../types/HttpStatus"
 import photosData from "../../tests/fixtures/photos.json"
 
 const getPhotos = async (date, interval = 3) => {
