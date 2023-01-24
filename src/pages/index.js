@@ -1,34 +1,23 @@
-import { throttle } from "lodash"
-import { app } from "../../config"
-const THROTTLE_TIME = app.throttle_time_ms
-import Loader from "@/comps/Loader"
-import PhotoGallery from "@/comps/PhotoGallery"
+import PhotoGallery from "../comps/PhotoGallery"
+import useIsElementVisible from "../hooks/useIsElementVisible"
 import {
   fetchMorePhotos,
   fetchPhotos,
   selectPhotos,
-} from "@/store/slices/photosSlice"
-import { SPINNER_TYPE } from "@/types/LoaderType"
+} from "../store/slices/photosSlice"
 import Head from "next/head"
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { dateSubtract } from "@/helpers/dateHelpers"
+import { dateSubtract } from "../helpers/dateHelpers"
+import LoaderSpinner from "../comps/LoaderSpinner"
 
 const Index = () => {
+  const lastRef = useRef(null)
   const dispatch = useDispatch()
   const photos = useSelector(selectPhotos)
+  const isLastVisible = useIsElementVisible(lastRef.current)
 
-  const handleScroll = (e) => {
-    const w = window
-    const b = document.body
-    // reached bottom of page
-    if (w.innerHeight + w.scrollY >= b.offsetHeight - 200) {
-      handleLoadMore()
-    }
-  }
-
-  const handleLoadMore = () => {
-    const date = dateSubtract(photos.currentDate, 8)
+  const handleLoadMore = (date) => {
     dispatch(
       fetchMorePhotos({
         date,
@@ -39,15 +28,14 @@ const Index = () => {
 
   useEffect(() => {
     dispatch(fetchPhotos({ date: new Date(), interval: 7 }))
-
-    // TODO: Fix load more when scrolling
-    // window.addEventListener("scroll", handleScroll)
-    // return () => {
-    //   window.removeEventListener("scroll", handleScroll)
-    // }
   }, [])
 
-  useEffect(() => {}, photos.currentDate)
+  useEffect(() => {
+    if (isLastVisible) {
+      const date = dateSubtract(photos.currentDate, 8)
+      handleLoadMore(date)
+    }
+  }, [isLastVisible])
 
   return (
     <>
@@ -60,17 +48,8 @@ const Index = () => {
           <PhotoGallery photos={photos.photos} />
         ) : null}
 
-        {photos.loadingMore ? (
-          <div className="loader-container">
-            <Loader type={SPINNER_TYPE} size="medium" />
-          </div>
-        ) : (
-          <div className="load-more-container">
-            <button className="btn btn-load-more" onClick={handleLoadMore}>
-              Load more
-            </button>
-          </div>
-        )}
+        {photos.hasMore ? <div ref={lastRef} /> : null}
+        {photos.loadingMore ? <LoaderSpinner /> : null}
       </div>
     </>
   )
