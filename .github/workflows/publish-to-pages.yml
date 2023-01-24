@@ -45,15 +45,6 @@ jobs:
           cache: ${{ steps.detect-package-manager.outputs.manager }}
           node-version: "19.1.0"
 
-      - name: Setup Pages 🔧
-        id: pages
-        uses: actions/configure-pages@v1
-        with:
-          # Automatically inject basePath in your Next.js configuration file and disable
-          # server side image optimization (https://nextjs.org/docs/api-reference/next/image#unoptimized).
-          #
-          # You may remove this line if you want to manage the configuration yourself.
-          static_site_generator: next
       - name: Restore cache 💾
         uses: actions/cache@v3
         with:
