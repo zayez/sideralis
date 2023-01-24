@@ -43,7 +43,7 @@ const Index = () => {
         <title>Sideralis | Home </title>
       </Head>
       <div className="container">
-        <h1>Home</h1>
+        <h1>Sideralis</h1>
         {!photos.loading && photos.photos?.length ? (
           <PhotoGallery photos={photos.photos} />
         ) : null}
