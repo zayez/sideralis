@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import { STATUS_ERR, STATUS_OK } from "../../types/HttpStatus"
 import api from "../../api"
+import { GALLERY_GRID } from "../../types/GalleryType"
 
 const initialState = {
   loading: false,
@@ -8,12 +9,18 @@ const initialState = {
   photos: [],
   hasMore: true,
   currentDate: null,
+  galleryType: GALLERY_GRID,
   error: "",
 }
 
 const photosSlice = createSlice({
   name: "photos",
   initialState,
+  reducers: {
+    setGalleryType(state, action) {
+      state.galleryType = action.payload
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchPhotos.pending, (state) => {
       state.loading = true
@@ -93,5 +100,7 @@ export const fetchMorePhotos = createAsyncThunk(
 )
 
 export const selectPhotos = (state) => state.photos
+
+export const { setGalleryType } = photosSlice.actions
 
 export default photosSlice.reducer

@@ -1,5 +1,5 @@
 import { format } from "date-fns"
-const PhotoItem = ({ date, title, explanation, url, hdurl }) => {
+const GallerySingleItem = ({ date, title, explanation, url, hdurl }) => {
   return (
     <>
       <div className="card">
@@ -13,22 +13,22 @@ const PhotoItem = ({ date, title, explanation, url, hdurl }) => {
         </div>
         <div className="card-footer">
           <h3>{title}</h3>
-          <p>{explanation.substring(0, 150)}...</p>
+          {/* <p>{explanation.substring(0, 150)}...</p> */}
         </div>
       </div>
     </>
   )
 }
-const PhotoGallery = ({ photos }) => {
+const GallerySingle = ({ items }) => {
   return (
     <>
-      <div className="gallery-grid">
-        {photos.map((photo, i) => {
-          return <PhotoItem key={i} {...photo} />
+      <div className={`gallery gallery-single`}>
+        {items.map((item, i) => {
+          return <GallerySingleItem key={i} {...item} />
         })}
       </div>
     </>
   )
 }
 
-export default PhotoGallery
+export default GallerySingle

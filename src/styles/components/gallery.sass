@@ -1,0 +1,34 @@
+.gallery
+  display: grid
+  padding: 0
+  gap: 1rem 1rem
+  margin-bottom: 1rem
+  list-style: none
+
+.gallery-grid
+  grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr))
+
+.gallery-split
+  grid-template-columns: 1fr 1fr
+
+.gallery-single
+  grid-template-columns: 1fr
+
+.gallery-grid-item
+  border: 1px solid #ccc
+
+.gallery-grid-item--header
+  padding: 0.25rem 1rem
+
+.gallery-grid-item--footer
+  padding: 0.25rem 1rem
+
+.gallery-grid-item--body-image
+  width: 100%
+  aspect-ratio: 1 / 0.75
+  object-fit: cover
+
+.gallery-split-item--body-image
+  width: 100%
+  aspect-ratio: 1 / 0.75
+  object-fit: cover

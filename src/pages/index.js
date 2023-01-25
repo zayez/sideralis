@@ -1,4 +1,3 @@
-import PhotoGallery from "../comps/PhotoGallery"
 import useIsElementVisible from "../hooks/useIsElementVisible"
 import {
   fetchMorePhotos,
@@ -10,6 +9,9 @@ import { useEffect, useRef } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { dateSubtract } from "../helpers/dateHelpers"
 import LoaderSpinner from "../comps/LoaderSpinner"
+import Gallery from "../comps/Gallery"
+import Header from "../comps/Header"
+import { CSSTransition } from "react-transition-group"
 
 const Index = () => {
   const lastRef = useRef(null)
@@ -44,9 +46,9 @@ const Index = () => {
         <title>Sideralis | Home </title>
       </Head>
       <div className="container">
-        <h1>Sideralis</h1>
+        <Header />
         {!photos.loading && photos.photos?.length ? (
-          <PhotoGallery photos={photos.photos} />
+          <Gallery items={photos?.photos} type={photos.galleryType} />
         ) : null}
 
         {photos.hasMore ? <div ref={lastRef} /> : null}
