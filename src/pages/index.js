@@ -51,7 +51,9 @@ const Index = () => {
           <Gallery items={photos?.photos} type={photos.galleryType} />
         ) : null}
 
-        {photos.hasMore ? <div ref={lastRef} /> : null}
+        {photos.hasMore ? (
+          <div className="bottom-observer" ref={lastRef} />
+        ) : null}
         {photos.loadingMore ? <LoaderSpinner /> : null}
       </div>
     </>
