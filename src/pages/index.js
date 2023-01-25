@@ -27,7 +27,8 @@ const Index = () => {
   }
 
   useEffect(() => {
-    dispatch(fetchPhotos({ date: new Date(), interval: 7 }))
+    const date = new Date()
+    dispatch(fetchPhotos({ date, interval: 7 }))
   }, [])
 
   useEffect(() => {
