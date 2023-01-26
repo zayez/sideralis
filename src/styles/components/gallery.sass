@@ -5,14 +5,34 @@
   margin-bottom: 1rem
   list-style: none
 
-.gallery-grid
-  grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr))
-
-.gallery-split
-  grid-template-columns: 1fr 1fr
 
 .gallery-single
   grid-template-columns: 1fr
+
+.gallery-split
+  grid-template-columns: 1fr
+  gap: 2rem
+
+.gallery-split-left
+  padding: 1rem 2rem
+
+.gallery-split-right
+  padding: 2rem 2rem
+
+
+.gallery-split-item
+  border: 1px solid palette(gray)
+  grid-template-columns: 1fr 1fr
+  display: grid
+  align-items: center
+  gap: 1rem
+  background: palette(black, mid-light)
+
+.gallery-split-item--body-image
+  // border: 1px solid white
+
+.gallery-grid
+  grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr))
 
 .gallery-grid-item
   border: 1px solid #ccc

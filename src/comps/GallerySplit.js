@@ -3,17 +3,16 @@ const GallerySplitItem = ({ date, title, explanation, url, hdurl }) => {
   return (
     <>
       <div className="gallery-split-item">
-        <div className="gallery-split-item--header">
-          <h3> {format(new Date(date), "dd/MM/yyyy")}</h3>
+        <div className="gallery-split-left">
+          <h3>{title}</h3>
+          <h4> {format(new Date(date), "dd/MM/yyyy")}</h4>
+          <p>{explanation}</p>
         </div>
-        <div className="gallery-split-item--body">
-          <a href="#">
+
+        <div className="gallery-split-right">
+          <a href={url} onClick={(e) => e.preventDefault()}>
             <img className="gallery-split-item--body-image" src={url} />
           </a>
-        </div>
-        <div className="gallery-split-item--footer">
-          <h3>{title}</h3>
-          {/* <p>{explanation.substring(0, 150)}...</p> */}
         </div>
       </div>
     </>
