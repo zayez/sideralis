@@ -1,0 +1,100 @@
+$breakpoints: (
+  "sm": (
+    min-width: 576px,
+  ),
+  "md": (
+    min-width: 768px,
+  ),
+  "lg": (
+    min-width: 992px,
+  ),
+  "xl": (
+    min-width: 1200px,
+  ),
+  "xll": (
+    min-width: 1400px,
+  ),
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px,
+) !default;
+
+// Base colors
+$color-base-grey: hsl(0, 0%, 50%);
+// $color-ryyyyhey: #1c1b1b
+$color-base-black: hsl(180, 1%, 9%);
+$color-base-white: hsl(360, 70%, 100%);
+$color-base-blue: hsl(199, 100%, 50%);
+$color-base-red: hsl(350, 100%, 50%);
+$color-base-green: hsl(90, 100%, 50%);
+$color-base-yellow: hsl(60, 100%, 50%);
+
+// Color palettes
+$palettes: (
+  green: (
+    base: $color-base-green,
+    light: lighten($color-base-green, 15%),
+    mid-light: lighten($color-base-green, 5%),
+    dark: darken($color-base-green, 15%),
+    x-light: lighten($color-base-green, 25%),
+    light-45: lighten($color-base-green, 45%),
+  ),
+  yellow: (
+    base: $color-base-yellow,
+    light: lighten($color-base-yellow, 15%),
+    mid-light: lighten($color-base-yellow, 5%),
+    dark: darken($color-base-yellow, 15%),
+    x-light: lighten($color-base-yellow, 25%),
+    light-45: lighten($color-base-yellow, 45%),
+  ),
+  blue: (
+    base: $color-base-blue,
+    light: lighten($color-base-blue, 15%),
+    mid-light: lighten($color-base-blue, 5%),
+    dark: darken($color-base-blue, 15%),
+    x-light: lighten($color-base-blue, 25%),
+    light-45: lighten($color-base-blue, 45%),
+  ),
+  red: (
+    base: $color-base-red,
+    mid-light: lighten($color-base-red, 5%),
+    light: lighten($color-base-red, 15%),
+    x-light: lighten($color-base-red, 25%),
+    light-35: lighten($color-base-red, 35%),
+    light-45: lighten($color-base-red, 45%),
+    dark: darken($color-base-red, 15%),
+  ),
+  white: (
+    base: $color-base-white,
+  ),
+  black: (
+    base: $color-base-black,
+    mid-light: lighten($color-base-black, 5%),
+    light: lighten($color-base-black, 15%),
+  ),
+  grey: (
+    base: $color-base-grey,
+    mid-light: lighten($color-base-grey, 5%),
+    light: lighten($color-base-grey, 15%),
+    x-light: lighten($color-base-grey, 25%),
+    light-35: lighten($color-base-grey, 35%),
+    light-45: lighten($color-base-grey, 45%),
+    dark: darken($color-base-grey, 25%),
+    mid-dark: darken($color-base-grey, 15%),
+  ),
+);
+
+:root {
+  --blue: hsl(220, 81.6%, 38.4%);
+  --gray-lighter: hsl(50, 0%, 92%);
+}
+
+$body-bg-color: palette(black);
+$body-text-color: palette(white);
+
+$btn-bg-color: palette(black, light);
