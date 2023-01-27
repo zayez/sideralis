@@ -2,18 +2,18 @@ import { format } from "date-fns"
 const GallerySingleItem = ({ date, title, explanation, url, hdurl }) => {
   return (
     <>
-      <div className="card">
-        <div className="card-header">
+      <div className="gallery-single-item">
+        <div className="gallery-single-item--header">
+          <h3>{title}</h3>
           <h3> {format(new Date(date), "dd/MM/yyyy")}</h3>
         </div>
-        <div className="card-body">
+        <div className="gallery-single-item--body">
           <a href="#">
-            <img className="card-image" src={url} />
+            <img className="gallery-single-item--body-image" src={url} />
           </a>
         </div>
-        <div className="card-footer">
-          <h3>{title}</h3>
-          {/* <p>{explanation.substring(0, 150)}...</p> */}
+        <div className="gallery-single-item--footer">
+          <p>{explanation}</p>
         </div>
       </div>
     </>

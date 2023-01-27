@@ -11,7 +11,7 @@ const GalleryGridItem = ({ date, title, explanation, url, hdurl }) => {
             <img className="gallery-grid-item--body-image" src={url} />
           </a>
         </div>
-        <div className="card-footer">
+        <div className="gallery-grid-item--footer">
           <h3>{title}</h3>
           {/* <p>{explanation.substring(0, 150)}...</p> */}
         </div>

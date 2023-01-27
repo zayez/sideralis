@@ -46,7 +46,7 @@ const Index = () => {
         <title>Sideralis | Home </title>
       </Head>
       <div className="container">
-        <Header />
+        <Header galleryType={photos.galleryType} />
         {!photos.loading && photos.photos?.length ? (
           <Gallery items={photos?.photos} type={photos.galleryType} />
         ) : null}

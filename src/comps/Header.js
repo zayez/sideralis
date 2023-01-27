@@ -1,3 +1,4 @@
+import { useState } from "react"
 import {
   Grid as IGrid,
   Columns as IColumns,
@@ -10,14 +11,17 @@ import {
   GALLERY_SINGLE,
   GALLERY_SPLIT,
 } from "../types/GalleryType"
-const Header = ({}) => {
+const Header = ({ galleryType }) => {
   const dispatch = useDispatch()
+  // const [selectedGalleryType, setSelectedGalleryType] = useState(galleryType)
 
   const handleGridClick = (e) => {
+    // setSelectedGalleryType(GALLERY_GRID)
     dispatch(setGalleryType(GALLERY_GRID))
   }
 
   const handleSplitClick = (e) => {
+    // setSelectedGalleryType(GALERRY)
     dispatch(setGalleryType(GALLERY_SPLIT))
   }
 
@@ -31,17 +35,32 @@ const Header = ({}) => {
         <h1>Sideralis</h1>
         <ul className="gallery-type">
           <li>
-            <button className="btn btn-gallery" onClick={handleGridClick}>
+            <button
+              className={`btn btn-gallery ${
+                galleryType == GALLERY_GRID ? "selected" : ""
+              }`}
+              onClick={handleGridClick}
+            >
               <IGrid />
             </button>
           </li>
           <li>
-            <button className="btn btn-gallery" onClick={handleSplitClick}>
+            <button
+              className={`btn btn-gallery ${
+                galleryType == GALLERY_SPLIT ? "selected" : ""
+              }`}
+              onClick={handleSplitClick}
+            >
               <IColumns />
             </button>
           </li>
           <li>
-            <button className="btn btn-gallery" onClick={handleSingleClick}>
+            <button
+              className={`btn btn-gallery ${
+                galleryType == GALLERY_SINGLE ? "selected" : ""
+              }`}
+              onClick={handleSingleClick}
+            >
               <ISquare />
             </button>
           </li>

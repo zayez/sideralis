@@ -8,10 +8,25 @@
 
 .gallery-single
   grid-template-columns: 1fr
+  gap: 5rem
+
+.gallery-single-item
+  background: palette(black, mid-light)
+  padding: 1rem 2rem
+
+.gallery-single-item--header
+  display: flex
+  justify-content: space-between
+
+
+.gallery-single-item--body-image
+  width: 100%
+  aspect-ratio: 2 /1
+  object-fit: cover
 
 .gallery-split
   grid-template-columns: 1fr
-  gap: 2rem
+  gap: 4rem
 
 .gallery-split-left
   padding: 1rem 2rem
@@ -21,23 +36,28 @@
 
 
 .gallery-split-item
-  border: 1px solid palette(gray)
-  grid-template-columns: 1fr 1fr
   display: grid
   align-items: center
   gap: 1rem
   background: palette(black, mid-light)
 
+  @include respond-to(lg)
+    grid-template-columns: 1fr 1fr
+
 .gallery-split-item--body-image
-  // border: 1px solid white
 
 .gallery-grid
   grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr))
+  gap: 2rem
+  row-gap: 3rem
 
 .gallery-grid-item
-  border: 1px solid #ccc
+  background: palette(black, mid-light)
 
 .gallery-grid-item--header
+  padding: 0.25rem 1rem
+
+.gallery-grid-item--body
   padding: 0.25rem 1rem
 
 .gallery-grid-item--footer
