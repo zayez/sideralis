@@ -16,13 +16,11 @@ Sideralis is an APOD web client.
 git clone https://github.com/zayez/sideralis.git
 ```
 
-2. Create an env file using the base template:
+2. Create an env file using the base template and edit the file inserting your API key for the NASA API. [Get one here](https://api.nasa.gov/)
 
 ```bash
 cp .env-template .env
 ```
-
-2.5. Edit the file and insert your API key for the NASA API. [Get one here](https://api.nasa.gov/)
 
 3. Install the dependencies:
 
