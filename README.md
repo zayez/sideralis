@@ -1,21 +1,41 @@
 # Sideralis
 
-An APOD web client.
+## Overview
 
-## Setup
+> #### "Astronomy Picture of the Day ([APOD](https://apod.nasa.gov)) is a website provided by NASA. Each day a different image or photograph of our universe is featured, along with a brief explanation written by a professional astronomer."
+>
+> [Wikipedia](https://en.wikipedia.org/wiki/Astronomy_Picture_of_the_Day)
 
-Create an env file using the base template:
+Sideralis is an APOD web client.
+
+## Getting Started
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/zayez/sideralis.git
+```
+
+2. Create an env file using the base template:
 
 ```bash
 cp .env-template .env
 ```
 
-Edit the file and insert your API key for the NASA API. [Get one here](https://api.nasa.gov/)
+2.5. Edit the file and insert your API key for the NASA API. [Get one here](https://api.nasa.gov/)
 
-## Getting Started
+3. Install the dependencies:
 
-To start working, just run:
+```bash
+npm install
+```
+
+4. Start working:
 
 ```bash
 npm run dev
 ```
+
+## License
+
+Sideralis is distributed under the terms and conditions of the MIT license.
