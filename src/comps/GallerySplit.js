@@ -1,11 +1,11 @@
-import { format } from "date-fns"
 const GallerySplitItem = ({ date, title, explanation, url, hdurl }) => {
+  const formattedDate = new Date(date).toLocaleDateString()
   return (
     <>
       <div className="gallery-split-item">
         <div className="gallery-split-left">
           <h1>{title}</h1>
-          <h2> {format(new Date(date), "dd/MM/yyyy")}</h2>
+          <h2> {formattedDate}</h2>
           <p>{explanation}</p>
         </div>
 

@@ -1,11 +1,11 @@
-import { format } from "date-fns"
 const GallerySingleItem = ({ date, title, explanation, url, hdurl }) => {
+  const formattedDate = new Date(date).toLocaleDateString()
   return (
     <>
       <div className="gallery-single-item">
         <div className="gallery-single-item--header">
           <h1>{title}</h1>
-          <h2> {format(new Date(date), "dd/MM/yyyy")}</h2>
+          <h2> {formattedDate}</h2>
         </div>
         <div className="gallery-single-item--body">
           <a href={url} onClick={(e) => e.preventDefault()}>
