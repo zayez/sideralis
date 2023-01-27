@@ -7,7 +7,7 @@ const GalleryGridItem = ({ date, title, explanation, url, hdurl }) => {
           <h2>{title}</h2>
         </div>
         <div className="gallery-grid-item--body">
-          <a href="#">
+          <a href={url} onClick={(e) => e.preventDefault()}>
             <img className="gallery-grid-item--body-image" src={url} />
           </a>
         </div>

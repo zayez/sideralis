@@ -8,7 +8,7 @@ const GallerySingleItem = ({ date, title, explanation, url, hdurl }) => {
           <h2> {format(new Date(date), "dd/MM/yyyy")}</h2>
         </div>
         <div className="gallery-single-item--body">
-          <a href="#">
+          <a href={url} onClick={(e) => e.preventDefault()}>
             <img className="gallery-single-item--body-image" src={url} />
           </a>
         </div>
