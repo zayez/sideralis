@@ -4,8 +4,8 @@ const GallerySplitItem = ({ date, title, explanation, url, hdurl }) => {
     <>
       <div className="gallery-split-item">
         <div className="gallery-split-left">
-          <h3>{title}</h3>
-          <h4> {format(new Date(date), "dd/MM/yyyy")}</h4>
+          <h1>{title}</h1>
+          <h2> {format(new Date(date), "dd/MM/yyyy")}</h2>
           <p>{explanation}</p>
         </div>
 

@@ -13,6 +13,9 @@ import Gallery from "../comps/Gallery"
 import Header from "../comps/Header"
 import { CSSTransition } from "react-transition-group"
 
+import "@fontsource/ruda"
+import "@fontsource/roboto-slab"
+
 const Index = () => {
   const lastRef = useRef(null)
   const dispatch = useDispatch()

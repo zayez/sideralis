@@ -98,3 +98,72 @@ $body-bg-color: palette(black);
 $body-text-color: palette(white);
 
 $btn-bg-color: palette(black, light);
+
+// TYPEGRAPHY
+
+$base-font-size: 100;
+$base-font-size-desktop: 118.8;
+$line-height: 1.45;
+$line-height-desktop: 1.45;
+
+// Select a ratio to preview
+// Default is "perfectFourth"
+$type-ratios: (
+  "minorSecond": 1.067,
+  "majorSecond": 1.125,
+  "minorThird": 1.2,
+  "majorThird": 1.25,
+  "perfectFourth": 1.333,
+  "augmentedFourth": 1.414,
+  "perfectFifth": 1.5,
+  "goldenRatio": 1.618,
+);
+
+@function type-ratio($key) {
+  @return map-get($type-ratios, $key);
+}
+
+// Recommended
+$type-base-size: 1;
+$type-size-ratio: type-ratio("majorThird");
+
+// ms, lheight, mtop, mbottom
+
+$headings: (
+  h1: (
+    4,
+    3,
+    2,
+    1,
+  ),
+  h2: (
+    2,
+    1.5,
+    2,
+    1,
+  ),
+  h3: (
+    1,
+    1.5,
+    1,
+    1,
+  ),
+  h4: (
+    0,
+    1,
+    1,
+    0.5,
+  ),
+  h5: (
+    0,
+    1,
+    1,
+    0,
+  ),
+  h6: (
+    0,
+    1,
+    1,
+    0,
+  ),
+);

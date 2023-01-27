@@ -1,0 +1,49 @@
+// Taken from the book "Better typography for a better web":
+// https://betterwebtype.com/web-typography-book/
+
+@function pow($number, $exponent) {
+  $value: 1;
+
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $number;
+    }
+  } @else if $exponent < 0 {
+    @for $i from 1 through -$exponent {
+      $value: calc($value / $number);
+    }
+  }
+
+  @return $value;
+}
+
+@function ms(
+  $value,
+  $ms-size-ratio: $type-size-ratio,
+  $ms-base-size: $type-base-size
+) {
+  $size: pow($ms-size-ratio, $value) * $ms-base-size;
+  @return #{$size + "rem"};
+}
+
+@mixin line-height($number) {
+  line-height: #{$number * $line-height + "rem"};
+  @include respond-to(sm) {
+    line-height: #{$number * $line-height-desktop + "rem"};
+  }
+}
+
+@mixin margin-top($number) {
+  margin-top: #{$number * $line-height + "rem"};
+  @include respond-to(sm) {
+    margin-top: #{$number * $line-height-desktop + "rem"};
+  }
+}
+
+@mixin margin-bottom($number) {
+  margin-bottom: #{$number * $line-height + "rem"};
+
+  @include respond-to(sm) {
+    margin-bottom: #{$number * $line-height-desktop + "rem"};
+  }
+}

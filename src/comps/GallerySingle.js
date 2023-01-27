@@ -4,8 +4,8 @@ const GallerySingleItem = ({ date, title, explanation, url, hdurl }) => {
     <>
       <div className="gallery-single-item">
         <div className="gallery-single-item--header">
-          <h3>{title}</h3>
-          <h3> {format(new Date(date), "dd/MM/yyyy")}</h3>
+          <h1>{title}</h1>
+          <h2> {format(new Date(date), "dd/MM/yyyy")}</h2>
         </div>
         <div className="gallery-single-item--body">
           <a href="#">
@@ -13,7 +13,7 @@ const GallerySingleItem = ({ date, title, explanation, url, hdurl }) => {
           </a>
         </div>
         <div className="gallery-single-item--footer">
-          <p>{explanation}</p>
+          <article>{explanation}</article>
         </div>
       </div>
     </>

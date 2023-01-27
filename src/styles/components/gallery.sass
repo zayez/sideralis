@@ -16,12 +16,19 @@
 
 .gallery-single-item--header
   display: flex
+  flex-flow: column
+  align-items: center
   justify-content: space-between
 
+.gallery-single-item--footer
+  display: flex
+  justify-content: center
+
+  padding: 4rem 0
 
 .gallery-single-item--body-image
   width: 100%
-  aspect-ratio: 2 /1
+  aspect-ratio: 2 / 1
   object-fit: cover
 
 .gallery-split
@@ -45,6 +52,9 @@
     grid-template-columns: 1fr 1fr
 
 .gallery-split-item--body-image
+  width: 100%
+  aspect-ratio: 1 / 1.35
+  object-fit: cover
 
 .gallery-grid
   grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr))
@@ -68,10 +78,6 @@
   aspect-ratio: 1 / 0.75
   object-fit: cover
 
-.gallery-split-item--body-image
-  width: 100%
-  aspect-ratio: 1 / 0.75
-  object-fit: cover
 
 .bottom-observer
   padding: 1rem

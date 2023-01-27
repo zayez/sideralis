@@ -4,7 +4,7 @@ const GalleryGridItem = ({ date, title, explanation, url, hdurl }) => {
     <>
       <div className="gallery-grid-item">
         <div className="gallery-grid-item--header">
-          <h3> {format(new Date(date), "dd/MM/yyyy")}</h3>
+          <h2>{title}</h2>
         </div>
         <div className="gallery-grid-item--body">
           <a href="#">
@@ -12,8 +12,7 @@ const GalleryGridItem = ({ date, title, explanation, url, hdurl }) => {
           </a>
         </div>
         <div className="gallery-grid-item--footer">
-          <h3>{title}</h3>
-          {/* <p>{explanation.substring(0, 150)}...</p> */}
+          <h3> {format(new Date(date), "dd/MM/yyyy")}</h3>
         </div>
       </div>
     </>

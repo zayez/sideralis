@@ -11,6 +11,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fontsource/roboto-slab": "^4.5.11",
+    "@fontsource/ruda": "^4.5.13",
     "@next/font": "13.1.2",
     "@reduxjs/toolkit": "^1.9.1",
     "date-fns": "^2.29.3",
