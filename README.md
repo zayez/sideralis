@@ -4,17 +4,17 @@ An APOD web client.
 
 ## Setup
 
-Create an appconfig file using the base template:
+Create an env file using the base template:
 
 ```bash
-cp appconfig-template.json appconfig.json
+cp .env-template .env
 ```
 
 Edit the file and insert your API key for the NASA API. [Get one here](https://api.nasa.gov/)
 
 ## Getting Started
 
-First, run the development server:
+To start working, just run:
 
 ```bash
 npm run dev
