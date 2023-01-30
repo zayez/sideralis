@@ -1,4 +1,11 @@
-const GallerySplitItem = ({ date, title, explanation, url, hdurl }) => {
+const GallerySplitItem = ({
+  date,
+  title,
+  explanation,
+  url,
+  hdurl,
+  onPhotoClick,
+}) => {
   const formattedDate = new Date(date).toLocaleDateString()
   return (
     <>
@@ -11,19 +18,25 @@ const GallerySplitItem = ({ date, title, explanation, url, hdurl }) => {
 
         <div className="gallery-split-right">
           <a href={url} onClick={(e) => e.preventDefault()}>
-            <img className="gallery-split-item--body-image" src={url} />
+            <img
+              className="gallery-split-item--body-image"
+              src={url}
+              onClick={onPhotoClick}
+            />
           </a>
         </div>
       </div>
     </>
   )
 }
-const GallerySplit = ({ items }) => {
+const GallerySplit = ({ items, onPhotoClick }) => {
   return (
     <>
       <div className={`gallery gallery-split`}>
         {items.map((item, i) => {
-          return <GallerySplitItem key={i} {...item} />
+          return (
+            <GallerySplitItem key={i} {...item} onPhotoClick={onPhotoClick} />
+          )
         })}
       </div>
     </>

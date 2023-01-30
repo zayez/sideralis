@@ -8,6 +8,8 @@ const initialState = {
   loadingMore: false,
   photos: [],
   hasMore: true,
+  hasOpenedPhoto: false,
+  openPhotoUrl: null,
   currentDate: null,
   galleryType: GALLERY_GRID,
   error: "",
@@ -19,6 +21,14 @@ const photosSlice = createSlice({
   reducers: {
     setGalleryType(state, action) {
       state.galleryType = action.payload
+    },
+    openPhoto(state, action) {
+      state.openPhotoUrl = action.payload
+      state.hasOpenedPhoto = true
+    },
+    closePhoto(state) {
+      state.openPhotoUrl = null
+      state.hasOpenedPhoto = false
     },
   },
   extraReducers: (builder) => {
@@ -101,6 +111,6 @@ export const fetchMorePhotos = createAsyncThunk(
 
 export const selectPhotos = (state) => state.photos
 
-export const { setGalleryType } = photosSlice.actions
+export const { setGalleryType, openPhoto, closePhoto } = photosSlice.actions
 
 export default photosSlice.reducer

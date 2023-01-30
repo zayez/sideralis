@@ -2,6 +2,7 @@ import useIsElementVisible from "../hooks/useIsElementVisible"
 import {
   fetchMorePhotos,
   fetchPhotos,
+  openPhoto,
   selectPhotos,
 } from "../store/slices/photosSlice"
 import Head from "next/head"
@@ -11,6 +12,8 @@ import { dateSubtract } from "../helpers/dateHelpers"
 import LoaderSpinner from "../comps/LoaderSpinner"
 import Gallery from "../comps/Gallery"
 import Header from "../comps/Header"
+import Overlay from "../comps/Overlay"
+import OverlayPhoto from "../comps/Overlay/OverlayPhoto"
 import { CSSTransition } from "react-transition-group"
 
 import "@fontsource/ruda"
@@ -29,6 +32,12 @@ const Index = () => {
         interval: 7,
       })
     )
+  }
+
+  const handlePhotoClick = (e) => {
+    e.preventDefault()
+    const photoUrl = e.target.src
+    dispatch(openPhoto(photoUrl))
   }
 
   useEffect(() => {
@@ -51,7 +60,16 @@ const Index = () => {
       <div className="container">
         <Header galleryType={photos.galleryType} />
         {!photos.loading && photos.photos?.length ? (
-          <Gallery items={photos?.photos} type={photos.galleryType} />
+          <>
+            <Gallery
+              items={photos?.photos}
+              type={photos.galleryType}
+              onPhotoClick={handlePhotoClick}
+            />
+            <Overlay hasOpenedPhoto={photos.hasOpenedPhoto}>
+              <OverlayPhoto photoUrl={photos.openPhotoUrl} />
+            </Overlay>
+          </>
         ) : null}
 
         {photos.hasMore ? (

@@ -92,6 +92,11 @@ $palettes: (
 :root {
   --blue: hsl(220, 81.6%, 38.4%);
   --gray-lighter: hsl(50, 0%, 92%);
+
+  /* ANIMATIONS AND TRANSITIONS  */
+  --base-transition-time: 600ms;
+  --gallery-photo-transition-time: 500ms;
+  --rover-item-transition-time: 500ms;
 }
 
 $body-bg-color: palette(black);
