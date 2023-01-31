@@ -1,7 +1,7 @@
 import GalleryGrid from "./GalleryGrid"
 import GallerySplit from "./GallerySplit"
 import GallerySingle from "./GallerySingle"
-import { GALLERY_GRID, GALLERY_SPLIT } from "../types/GalleryType"
+import { GALLERY_GRID, GALLERY_SPLIT } from "../../types/GalleryType"
 
 const Gallery = ({ items, type, onPhotoClick }) => {
   return type === GALLERY_GRID ? (
