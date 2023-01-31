@@ -37,7 +37,8 @@ const Index = () => {
   const handlePhotoClick = (e) => {
     e.preventDefault()
     const photoUrl = e.target.src
-    dispatch(openPhoto(photoUrl))
+    const item = photos.photos.find((a) => a.url === photoUrl)
+    dispatch(openPhoto(item))
   }
 
   useEffect(() => {
@@ -67,7 +68,7 @@ const Index = () => {
               onPhotoClick={handlePhotoClick}
             />
             <Overlay hasOpenedPhoto={photos.hasOpenedPhoto}>
-              <OverlayPhoto photoUrl={photos.openPhotoUrl} />
+              <OverlayPhoto {...photos.selectedItem} />
             </Overlay>
           </>
         ) : null}

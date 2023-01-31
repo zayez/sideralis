@@ -9,7 +9,7 @@ const initialState = {
   photos: [],
   hasMore: true,
   hasOpenedPhoto: false,
-  openPhotoUrl: null,
+  selectedItem: null,
   currentDate: null,
   galleryType: GALLERY_GRID,
   error: "",
@@ -23,12 +23,12 @@ const photosSlice = createSlice({
       state.galleryType = action.payload
     },
     openPhoto(state, action) {
-      state.openPhotoUrl = action.payload
+      state.selectedItem = action.payload
       state.hasOpenedPhoto = true
     },
     closePhoto(state) {
-      state.openPhotoUrl = null
       state.hasOpenedPhoto = false
+      state.selectedItem = null
     },
   },
   extraReducers: (builder) => {

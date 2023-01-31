@@ -1,13 +1,12 @@
-const OverlayPhoto = ({ photoUrl }) => {
-  const src = photoUrl ? photoUrl : ""
+const OverlayPhoto = ({ url }) => {
   return (
     <div className="overlay-frame">
       <a
-        href={src}
+        href={url}
         className="overlay-photo-link"
         onClick={(e) => e.preventDefault()}
       >
-        <img id="overlay-image" src={src} className="overlay-frame-image" />
+        <img id="overlay-image" src={url} className="overlay-frame-image" />
       </a>
     </div>
   )
