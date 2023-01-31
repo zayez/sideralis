@@ -13,19 +13,16 @@ import {
 } from "../types/GalleryType"
 const Header = ({ galleryType }) => {
   const dispatch = useDispatch()
-  // const [selectedGalleryType, setSelectedGalleryType] = useState(galleryType)
 
-  const handleGridClick = (e) => {
-    // setSelectedGalleryType(GALLERY_GRID)
+  const handleGridClick = () => {
     dispatch(setGalleryType(GALLERY_GRID))
   }
 
-  const handleSplitClick = (e) => {
-    // setSelectedGalleryType(GALERRY)
+  const handleSplitClick = () => {
     dispatch(setGalleryType(GALLERY_SPLIT))
   }
 
-  const handleSingleClick = (e) => {
+  const handleSingleClick = () => {
     dispatch(setGalleryType(GALLERY_SINGLE))
   }
 
