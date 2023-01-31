@@ -7,6 +7,9 @@ import "../styles/index.sass"
 import { SwitchTransition, CSSTransition } from "react-transition-group"
 import "react-toastify/dist/ReactToastify.css"
 
+import "@fontsource/ruda"
+import "@fontsource/roboto-slab"
+
 const MyApp = ({ Component, pageProps, router }) => {
   const nodeRef = React.useRef(null)
   const getLayout = Component.getLayout ?? defaultLayout

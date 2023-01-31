@@ -16,9 +16,6 @@ import Overlay from "../comps/Overlay"
 import OverlayPhoto from "../comps/Overlay/OverlayPhoto"
 import { CSSTransition } from "react-transition-group"
 
-import "@fontsource/ruda"
-import "@fontsource/roboto-slab"
-
 const Index = () => {
   const lastRef = useRef(null)
   const dispatch = useDispatch()
