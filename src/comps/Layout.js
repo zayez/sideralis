@@ -30,7 +30,7 @@ const DefaultLayout = ({ children }) => {
   return (
     <>
       <BaseLayout />
-      <div className="container">
+      <div className="">
         {/* <Header /> */}
         {children}
         {/* <Footer /> */}
